@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adroint</title>
+    <h1 style="text-align:center">Adroint Testing and Feedback</h1>
+</head>
+<body>
+ <form action="{{ url_for('index') }}" method="post">
+<div style="float:left; width:50%;">
+
+
+
+<textarea placeholder="Enter email here" rows="20" cols="100"  name="request_area" >{{resp["request"]}}</textarea>
+
+
+<br>
+<button type="submit" >Submit and log response to DB</button>
+        <br>
+
+<textarea placeholder="response will appear here" rows="20" cols="100"  name="response_area" readonly>{{resp["response"]}}</textarea><br />
+
+
+
+</div>
+<div style="float:right; width:50%;">
+<textarea placeholder="Enter the feedback values here in form of case1,case2 dictionaries" rows="20" cols="100"  name="feedback_area" ></textarea>
+    <button type="submit" >Log feedback to DB</button>
+
+</div>
+     </form>
+</body>
+</html>
