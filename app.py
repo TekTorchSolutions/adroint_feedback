@@ -2,6 +2,7 @@ from flask import Flask,render_template,request
 from pymongo import MongoClient
 import requests
 import json
+import os
 app=Flask(__name__)
 
 @app.route('/adroint',methods=["GET","POST"])
@@ -67,5 +68,10 @@ def send_to_db(feedback=False,request_text="",response_text="",feedback_text="")
 
 
 
-if __name__=='__main__':
-    app.run(debug=True)
+if __name__ == '__main__':
+    port = int(os.getenv('PORT', 5000))
+
+    print("Starting app on port %d" % port)
+
+    app.run(debug=False, port=port, host='0.0.0.0')
+
